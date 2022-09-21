@@ -78,8 +78,8 @@ st.markdown(
 
 
 # here is how to create containers
-header_container = st.beta_container()
-stats_container = st.beta_container()	
+header_container = st.container()
+stats_container = st.container()
 #######################################
 
 
@@ -143,7 +143,7 @@ with stats_container:
 	# collect input usinga list of options in a drop down format
 	# TODO: change the option list to end_station_list and see what happens
 	st.write('Or you can ask the user to select an option from the dropdown menu')
-	s_station = st.selectbox('Which start station would you like to see?', start_station_list, key='start_station')
+	s_station = st.selectbox('Which start station would you like to see?', end_station_list, key='start_station')
 
 	# display the collected input
 	st.write('You selected the station: ' + str(s_station))
@@ -179,9 +179,9 @@ with stats_container:
 
 
 
-	# 7 --- creating columns inside a container 
+	# 7 --- creating columns inside a container
 	#		(you can create more than 2)
-	bar_col, pie_col = st.beta_columns(2)
+	bar_col, pie_col = st.columns(2)
 
 	# in order to display things inside columns, replace the st. with the column name when creating components
 
@@ -206,7 +206,7 @@ with stats_container:
 	# don't forget to add titles to your plots
 	bar_col.subheader('Trip duration in minutes per start station')
 
-	# This is the way to make a very simple bar chart 
+	# This is the way to make a very simple bar chart
 	# Visit https://docs.streamlit.io/en/stable/api.html for more information on what other plots and charts are possible
 	bar_col.bar_chart(start_location)
 
