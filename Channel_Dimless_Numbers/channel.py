@@ -1,7 +1,7 @@
 import numpy as np
 import streamlit as st
+import pickle
 import pandas as pd
-
 
 st.header("Rotating Channel Dimensionless Numbers")
 
@@ -42,11 +42,14 @@ if st.button("Calculate"):
 
     # st.balloons()
 
-    # c1.subheader("Reynold")
-    # c2.metric(label="", value=f"{Re(nu,h,Ub):.2f}")
-    # c1.subheader("Rossby")
-    # c2.metric(label="", value=f"{Ro(omega,h,Ub):.2f}")
-    # c1.subheader("Ekman")
-    # c2.metric(label="", value=f"{Ek(nu,omega,h):.4f}")
+    # if st.button("Save"):
+    results = {"h": h, "omega": omega, "nu": nu, "Re":Re_, "Ro": Ro_, "Ek":Ek_}
+    df = pd.DataFrame(results, index=[0])
+
+    st.write(df)
+    st.download_button(label="Download results as CSV", data=results, file_name="results.csv", mime='text/csv',)
+
+        # with open("saved_data.pkl", 'wb') as file:  # write binary
+        #     pickle.dump(results, file)
 
 
