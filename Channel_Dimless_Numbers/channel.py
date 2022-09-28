@@ -47,7 +47,7 @@ if st.button("Calculate"):
     df = pd.DataFrame(results, index=[0])
 
     st.write(df)
-    st.download_button(label="Download results as CSV", data=results, file_name="results.csv", mime='text/csv',)
+    # st.download_button(label="Download results as CSV", data=results, file_name="results.csv", mime='text/csv',)
 
         # with open("saved_data.pkl", 'wb') as file:  # write binary
         #     pickle.dump(results, file)
