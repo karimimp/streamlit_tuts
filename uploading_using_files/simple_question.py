@@ -52,5 +52,6 @@ if user_file is not None:
 
     dataframe = pd.read_csv(user_file)
     st.write(dataframe)
+    st.write(dataframe["num_a"])
 
 
