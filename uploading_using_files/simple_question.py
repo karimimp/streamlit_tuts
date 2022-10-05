@@ -6,7 +6,7 @@ from io import StringIO
 def humble_multiplier(a,b,c):
     return a*b*c
 
-st.title("My Humble Multiplier!!")
+st.title("Multiplier!")
 
 a_ = st.number_input("number a:", value = 0.01)
 b_ = st.number_input("number b:", value = 0.02)
@@ -37,21 +37,10 @@ else:
 user_file = st.file_uploader("Upload Your JSON file", type=["json","csv"])
 
 if user_file is not None:
-    # To read file as bytes:
-    # bytes_data = user_file.getvalue()
-    # st.write(bytes_data)
-
-    # To convert to a string based IO:
-    # stringio = StringIO(user_file.getvalue().decode("utf-8"))
-    # st.write(stringio)
-
-    # To read file as string:
-    # string_data = stringio.read()
-    # st.write(string_data)
-    # st.write(string_data[0:10])
-
     dataframe = pd.read_csv(user_file)
-    st.write(dataframe)
-    st.write(dataframe["num_a"])
+    # st.write(dataframe)
+    a = dataframe["num_a"]
+    b = a*10
+    st.write(f"My number is {b[0]}")
 
 
